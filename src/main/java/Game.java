@@ -4,7 +4,7 @@ public class Game {
     HashMap<String, Player> players = new HashMap<>();
 
     public void register(Player player) {
-        players.put(player.getName(), player);
+        players.put(player.getName(), player);  //Ну да, имя будет дублироваться, а что делать?
     }
 
     public int round(String playerName1, String playerName2) {
