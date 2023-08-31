@@ -1,30 +1,23 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Game {
-    List<Player> players = new ArrayList<>();
+    HashMap<String, Player> players = new HashMap<>();
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     public int round(String playerName1, String playerName2) {
-        int player1Strength = 0;
-        int player2Strength = 0;
+        int player1Strength, player2Strength;
 
-        for (Player player : players) {
-            if (player.getName().equals(playerName1)) {
-                player1Strength = player.getStrength();
-            }
-            if (player.getName().equals(playerName2)) {
-                player2Strength = player.getStrength();
-            }
-
-        }
-        if (player1Strength == 0) {
+        if (players.containsKey(playerName1)) {
+            player1Strength = players.get(playerName1).getStrength();
+        } else {
             throw new NotRegisteredException("Игрок " + playerName1 + " не зарегистрирован, соревнования не будет!");
         }
-        if (player2Strength == 0) {
+        if (players.containsKey(playerName2)) {
+            player2Strength = players.get(playerName2).getStrength();
+        } else {
             throw new NotRegisteredException("Игрок " + playerName2 + " не зарегистрирован, соревнования не будет!");
         }
 
