@@ -1,8 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 public class Game {
-    List<Player> players = new ArrayList<>();
+    HashSet<Player> players = new HashSet<>();
 
     public void register(Player player) {
         players.add(player);
