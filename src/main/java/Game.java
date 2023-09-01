@@ -9,8 +9,8 @@ public class Game {
     }
 
     public int round(String playerName1, String playerName2) {
-        int player1Strength = 0;
-        int player2Strength = 0;
+        int player1Strength = -1;
+        int player2Strength = -1;
 
         for (Player player : players) {
             if (player.getName().equals(playerName1)) {
@@ -21,10 +21,10 @@ public class Game {
             }
 
         }
-        if (player1Strength == 0) {
+        if (player1Strength == -1) {
             throw new NotRegisteredException(playerName1);
         }
-        if (player2Strength == 0) {
+        if (player2Strength == -1) {
             throw new NotRegisteredException(playerName2);
         }
 
