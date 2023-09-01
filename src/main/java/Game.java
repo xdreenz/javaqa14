@@ -1,7 +1,8 @@
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
-    HashSet<Player> players = new HashSet<>();
+    List<Player> players = new ArrayList<>();
 
     public void register(Player player) {
         players.add(player);
@@ -21,10 +22,10 @@ public class Game {
 
         }
         if (player1Strength == 0) {
-            throw new NotRegisteredException("Игрок " + playerName1 + " не зарегистрирован, соревнования не будет!");
+            throw new NotRegisteredException(playerName1);
         }
         if (player2Strength == 0) {
-            throw new NotRegisteredException("Игрок " + playerName2 + " не зарегистрирован, соревнования не будет!");
+            throw new NotRegisteredException(playerName2);
         }
 
         if (player1Strength > player2Strength) {
